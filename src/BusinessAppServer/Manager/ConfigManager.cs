@@ -370,15 +370,15 @@ namespace BusinessAppServer.Manager
 
         public ResponseResult ResetPassword(ResetPasswordVm resetVm)
         {
-            ResponseResult res = new ResponseResult();       
+            ResponseResult res = new ResponseResult();
             IMongoCollection<RegistrationDm> collection = new MongoClient("mongodb://127.0.0.1:27017").GetDatabase("StoreDB").GetCollection<RegistrationDm>("Register");
             IMongoCollection<LoginRequestDm> logcollection = new MongoClient("mongodb://127.0.0.1:27017").GetDatabase("StoreDB").GetCollection<LoginRequestDm>("Login");
             var resetDm = _mapper.Map<ResetPasswordVm, ResetPasswordDm>(resetVm);
-            var dataExist = collection.Find(d => d.emailDm == resetDm.emailAddressDm.Trim() && d.newPasswordDm ==resetDm.oldPasswordDm.Trim());
+            var dataExist = collection.Find(d => d.emailDm == resetDm.emailAddressDm.Trim() && d.newPasswordDm == resetDm.oldPasswordDm.Trim());
             if (dataExist.Count() == 1)
-            {               
+            {
                 try
-                {                   
+                {
                     var filter = Builders<RegistrationDm>.Filter.Eq("emailDm", resetDm.emailAddressDm);
                     var update = Builders<RegistrationDm>.Update
                         .Set("tempPassword", "")
@@ -396,7 +396,7 @@ namespace BusinessAppServer.Manager
                 catch (Exception ex)
                 {
                     res.Status = "fail";
-                    res.Message = ex.Message;                   
+                    res.Message = ex.Message;
                 }
             }
             else
@@ -406,6 +406,30 @@ namespace BusinessAppServer.Manager
 
             }
             return res;
+        }
+
+        public List<FoodDetails> GetFoodDetails()
+        {
+
+            IMongoCollection<FoodsCollection> foodsCollection = new MongoClient("mongodb://127.0.0.1:27017").GetDatabase("StoreDB").GetCollection<FoodsCollection>("FoodsCollection");
+            IMongoCollection<FoodItemDetailsDm> foodItemDetails = new MongoClient("mongodb://127.0.0.1:27017").GetDatabase("StoreDB").GetCollection<FoodItemDetailsDm>("FoodItemDetails");
+
+            //var k = foodItemDetails.Find(d=>d.foodId==foodsCollection.Find(f=>f.foodId));
+            var foodItemDetailsList = foodItemDetails.AsQueryable();
+            IQueryable<FoodDetails> food = from p in foodItemDetailsList
+                    join o in foodsCollection.AsQueryable() on p.foodId equals o.foodId
+                    select new FoodDetails()
+                    {
+                        foodDetailsId = p.foodDetailsId,
+                        foodDetailsDescription = p.foodDetailsDescription,
+                        foodId = p.foodId,
+
+                        foodItemName = p.foodItemName,
+                        foodItemPrice = p.foodItemPrice,
+                        foodName = o.foodName
+                    };
+            var foodDetailList = food.ToList();
+            return foodDetailList;
         }
     }
 }

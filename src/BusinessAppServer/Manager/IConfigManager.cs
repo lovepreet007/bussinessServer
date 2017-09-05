@@ -16,8 +16,10 @@ namespace BusinessAppServer.Manager
         List<OwnersDetails> FetchOwnersData();
         List<OwnersDetails> FetchUpdatedOwnersData(string orderId);
         List<Report> ReportGeneration(ReportVm reportVm);
-       ResponseResult Registration(RegistrationVm registrationRequest);
-       ResponseResult ForgotPassword(string email);
+        ResponseResult Registration(RegistrationVm registrationRequest);
+        ResponseResult ForgotPassword(string email);
         ResponseResult ResetPassword(ResetPasswordVm resetVm);
+
+        List<FoodDetails> GetFoodDetails();
     }
 }

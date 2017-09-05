@@ -200,6 +200,7 @@ D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\HttpHelper.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Program.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\SessionExtensionscs.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Startup.cs
+D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Controllers\FoodController.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Controllers\HomeController.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Controllers\LoginController.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Controllers\OrderController.cs
@@ -213,6 +214,8 @@ D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Sms\SmsVerficatio
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\Sms\ViaNettSMS.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\Address.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\Filters.cs
+D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\FoodDetails.cs
+D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\FoodDetailsDm.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\LoginRequestDm.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\LoginRequestVm.cs
 D:\BusinessApp\BusinessAppServerSolution\src\BusinessAppServer\ViewModel\LoginResponseDm.cs

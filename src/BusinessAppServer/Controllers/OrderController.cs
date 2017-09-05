@@ -20,13 +20,11 @@ namespace BusinessAppServer.Controllers
    
     public class OrderController :Controller
     {
-        IConfigManager _IConfig;
-        private  IHttpContextAccessor _contextAccessor;    
+        IConfigManager _IConfig;        
 
         public OrderController(IConfigManager _config, IHttpContextAccessor contextAccessor)
         {
-            _IConfig = _config;
-            _contextAccessor = contextAccessor;
+            _IConfig = _config;           
 
         }
 
